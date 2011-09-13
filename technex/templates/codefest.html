@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+		
+        {% block title %} CODEFEST {% endblock %}
+        
+        <script type="text/javascript">
+                
+            function eventLoad(what)
+            {
+            $(".inner").load("event.php", {key:what} );
+            }      
+           
+
+{% block subcontent1 %}
+	
+		<div id="wrapper" style="margin:0px;">
+		<div id="fake">
+			    <div id="c1" class="content-box">
+					<div class="inner">
+						<h1 style="font:20pt Arial;width:100&;margin-top:2%;background:rgba(0,0,255,0.5);"></h1>
+						
+                        <div class="demo">
+
+                            <div id="tabs" class="tabs">
+                                
+                                <ul>
+                                    <li><a href="#tabs-1">CODEFEST</a></li>
+                                  
+                                </ul>
+                                <div id="tabs-1">
+                                    <ul id="workshop" style="position:relative;left:20%;top:-20px">
+                                        <li title="HACKNEX" id="spr_robowars" id="spr_dnt" onClick="eventLoad(1);"></li>
+                                        <li title="EMBEDDED SYSTEMS" id="spr_optika" id="spr_dnt" onClick="eventLoad(2);"></li>
+                                        <li title="ROBOTICS" id="spr_irobot" id="spr_dnt" onClick="eventLoad(3);"></li>
+                                        <li title="IMAGE PROCESSING" id="spr_dnt" onClick="eventLoad(4);"></li>
+                                    </ul>
+                                    <div id="child_con">
+                                         
+                                
+                                        </div>
+                                </div>
+                                
+                            </div>
+
+                        </div><!-- End demo -->
+                       
+						
+					</div>
+				</div>		
+			</div><!-- div id="fake" -->
+		</div><!-- div id="wrapper" -->
+        
+{% endblock %}

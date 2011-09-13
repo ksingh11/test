@@ -1,0 +1,291 @@
+/*Sprite CSS DOCK **************************************
+	Author: Kaushal      
+******************************************************/
+
+body{
+background:black;}
+.out
+{
+position: absolute;
+left:5%;
+top:78%;
+background-color:rgba(255,255,255,0);
+height:250px;
+width:100%;
+}
+
+.out div.txt
+{display:none;
+}
+.in
+{
+/* border:2px solid;
+border-color:#42479C;*/
+border-radius:15px;
+-moz-border-radius:15px; /* Firefox 3.6 and earlier */
+background:brgba(255,255,255,0);
+padding:0px; 
+height:180px;
+width:52%;
+margin-left:19%;
+margin-top:50px;
+}
+#sideout
+{
+position:absolute;
+right:-20%;
+top:25%;
+background-color:rgba(0,255,0,0);
+height:250px;
+width:300px;
+}
+#sideout:hover
+{
+right:0%;
+}
+
+div.sideout
+{
+border-radius:5px;
+-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+position:relative;
+float:left;
+color:white;
+text-align:center;
+background:red;
+width:30px;
+top:80px;
+}
+
+#sideout:hover div.sideout
+{display:none;
+}
+
+#sidein
+{
+border:2px solid;
+border-color:#42479C;
+border-radius:15px;
+-moz-border-radius:15px; /* Firefox 3.6 and earlier */
+background:white;
+padding:0px; 
+height:250px;
+width:270px;
+right:0%;
+margin-left:30px;
+}
+
+#out
+{
+position: absolute;
+top:85%;
+background-color:rgba(255,255,255,0);
+//height:150px;
+width:90%;
+}
+/*#out:hover
+{
+top:78%;
+}
+#out:hover div.txt
+{display:none;
+}*/
+#in
+{//display:none;
+position:relative;
+
+/* border:2px solid;
+border-color:#42479C;*/
+border-radius:15px;
+-moz-border-radius:15px; /* Firefox 3.6 and earlier */
+background:rgba(255,0,255,0);
+padding:0px; 
+//height:100px;
+width:52%;
+margin-left:23%;
+margin-top:0px;
+/*margin-top:50px;*/
+}
+
+#navlist{position:relative;}
+#navlist li{margin:0;padding:0;list-style:none;position:absolute;top:0;margin-left:3%;}
+#navlist li, #navlist a{height:95px;display:block;}
+
+#spon{left:0px;width:112px;}
+#spon{background:url('../pics/sprite.png') 0 0;}
+#spon a:hover{background: url('../pics/sprite.png') 0 -95px;}
+
+#reg{left:113px;width:112px;}
+#reg{background:url('../pics/sprite.png') -112px 0;}
+#reg a:hover{background: url('../pics/sprite.png') -8.272% -6.95%;}
+
+#mypage{left:226px;width:112px;}
+#mypage{background:url('../pics/sprite.png') -224px 0;}
+#mypage a:hover{background: url('../pics/sprite.png') -224px -95px;}
+
+#event{left:339px;width:112px;}
+#event{background:url('../pics/sprite.png') -337px 0;}
+#event a:hover{background: url('../pics/sprite.png') -336px -95px;}
+
+#guest{left:452px;width:97px;}
+#guest{background:url('../pics/sprite.png') -447px 0;}
+#guest a:hover{background: url('../pics/sprite.png') -446px -95px;}
+
+#con{left:565px;width:96px;}
+#con{background:url('../pics/sprite.png') -555px 0;}
+#con a:hover{background: url('../pics/sprite.png') -555px -95px;}
+
+
+
+
+#tech_event{position:relative;}
+#tech_event li{margin:0;padding:0;list-style:none;position:absolute;top:0;margin-left:3%;}
+#tech_event li, #tech_event a{height:95px;display:block;}
+
+#spr_workshop{left:0px;width:112px;}
+#spr_workshop{background:url('../pics/sprite.png') 0 0;}
+#spr_workshop a:hover{background: url('../pics/sprite.png') 0 -95px;}
+
+#spr_rotrix{left:113px;width:112px;}
+#spr_rotrix{background:url('../pics/sprite.png') -112px 0;}
+#spr_rotrix a:hover{background: url('../pics/sprite.png') -113px -95px;}
+
+#spr_modex{left:226px;width:112px;}
+#spr_modex{background:url('../pics/sprite.png') -224px 0;}
+#spr_modex a:hover{background: url('../pics/sprite.png') -224px -95px;}
+
+#spr_codefest{left:339px;width:112px;}
+#spr_codefest{background:url('../pics/sprite.png') -337px 0;}
+#spr_codefest a:hover{background: url('../pics/sprite.png') -336px -95px;}
+
+#spr_extreme{left:452px;width:97px;}
+#spr_extreme{background:url('../pics/sprite.png') -447px 0;}
+#spr_extreme a:hover{background: url('../pics/sprite.png') -446px -95px;}
+
+
+
+
+
+#mang_event{position:relative;}
+#mang_event li{margin:0;padding:0;list-style:none;position:absolute;top:0;margin-left:3%;}
+#mang_event li, #mang_event a{height:95px;display:block;}
+
+#spr_innoventure{left:0px;width:112px;}
+#spr_innoventure{background:url('../pics/sprite.png') 0 0;}
+#spr_innoventure a:hover{background: url('../pics/sprite.png') 0 -95px;}
+
+#spr_krackat{left:113px;width:112px;}
+#spr_krackat{background:url('../pics/sprite.png') -112px 0;}
+#spr_krackat a:hover{background: url('../pics/sprite.png') -113px -95px;}
+
+#spr_venture{left:226px;width:112px;}
+#spr_venture{background:url('../pics/sprite.png') -224px 0;}
+#spr_venture a:hover{background: url('../pics/sprite.png') -224px -95px;}
+
+#spr_manthan{left:339px;width:112px;}
+#spr_manthan{background:url('../pics/sprite.png') -337px 0;}
+#spr_manthan a:hover{background: url('../pics/sprite.png') -336px -95px;}
+
+#spr_thoughtz{left:452px;width:97px;}
+#spr_thoughtz{background:url('../pics/sprite.png') -447px 0;}
+#spr_thoughtz a:hover{background: url('../pics/sprite.png') -446px -95px;}
+
+
+
+#robotics{position:relative;}
+#robotics li{margin:0;padding:0;list-style:none;position:absolute;top:0;margin-left:3%;}
+#robotics li, #robotics a{height:95px;display:block;}
+
+#spr_robowars{left:0px;width:112px;}
+#spr_robowars{background:url('../pics/sprite.png') 0 0;}
+#spr_robowars a:hover{background: url('../pics/sprite.png') 0 -95px;}
+
+#spr_optika{left:113px;width:112px;}
+#spr_optika{background:url('../pics/sprite.png') -112px 0;}
+#spr_optika a:hover{background: url('../pics/sprite.png') -113px -95px;}
+
+#spr_irobot{left:226px;width:112px;}
+#spr_irobot{background:url('../pics/sprite.png') -224px 0;}
+#spr_irobot a:hover{background: url('../pics/sprite.png') -224px -95px;}
+
+#spr_dnt{left:339px;width:112px;}
+#spr_dnt{background:url('../pics/sprite.png') -337px 0;}
+#spr_dnt a:hover{background: url('../pics/sprite.png') -336px -95px;}
+
+
+
+
+#extreme_engg{position:relative;}
+#extreme_engg li{margin:0;padding:0;list-style:none;position:absolute;top:0;margin-left:3%;}
+#extreme_engg li, #extreme_engg a{height:95px;display:block;}
+
+#spr_akshay{left:0px;width:112px;}
+#spr_akshay{background:url('../pics/sprite.png') 0 0;}
+#spr_akshay a:hover{background: url('../pics/sprite.png') 0 -95px;}
+
+#spr_chemo{left:113px;width:112px;}
+#spr_chemo{background:url('../pics/sprite.png') -112px 0;}
+#spr_chemo a:hover{background: url('../pics/sprite.png') -113px -95px;}
+
+#spr_concorde{left:226px;width:112px;}
+#spr_concorde{background:url('../pics/sprite.png') -224px 0;}
+#spr_concorde a:hover{background: url('../pics/sprite.png') -224px -95px;}
+
+#spr_flotante{left:339px;width:112px;}
+#spr_flotante{background:url('../pics/sprite.png') -337px 0;}
+#spr_flotante a:hover{background: url('../pics/sprite.png') -336px -95px;}
+
+#guest{left:452px;width:97px;}
+#guest{background:url('../pics/sprite.png') -447px 0;}
+#guest a:hover{background: url('../pics/sprite.png') -446px -95px;}
+
+#con{left:565px;width:96px;}
+#con{background:url('../pics/sprite.png') -555px 0;}
+#con a:hover{background: url('../pics/sprite.png') -555px -95px;}
+
+
+
+#modex{position:relative;}
+#modex li{margin:0;padding:0;list-style:none;position:absolute;top:0;margin-left:3%;}
+#modex li, #modex a{height:95px;display:block;}
+
+#spr_greent{left:0px;width:112px;}
+#spr_greent{background:url('../pics/sprite.png') 0 0;}
+#spr_greent a:hover{background: url('../pics/sprite.png') 0 -95px;}
+
+#spr_health{left:113px;width:112px;}
+#spr_health{background:url('../pics/sprite.png') -112px 0;}
+#spr_health a:hover{background: url('../pics/sprite.png') -113px -95px;}
+
+#spr_openh{left:226px;width:112px;}
+#spr_openh{background:url('../pics/sprite.png') -224px 0;}
+#spr_openh a:hover{background: url('../pics/sprite.png') -224px -95px;}
+
+#spr_opens{left:339px;width:112px;}
+#spr_opens{background:url('../pics/sprite.png') -337px 0;}
+#spr_opens a:hover{background: url('../pics/sprite.png') -336px -95px;}
+
+#spr_socrur{left:452px;width:97px;}
+#spr_socrur{background:url('../pics/sprite.png') -447px 0;}
+#spr_socrur a:hover{background: url('../pics/sprite.png') -446px -95px;}
+
+
+#workshop{position:relative;}
+#workshop li{margin:0;padding:0;list-style:none;position:absolute;top:0;margin-left:3%;}
+#workshop li, #workshop a{height:95px;display:block;}
+
+#spr_robowars{left:0px;width:112px;}
+#spr_robowars{background:url('../pics/sprite.png') 0 0;}
+#spr_robowars a:hover{background: url('../pics/sprite.png') 0 -95px;}
+
+#spr_optika{left:113px;width:112px;}
+#spr_optika{background:url('../pics/sprite.png') -112px 0;}
+#spr_optika a:hover{background: url('../pics/sprite.png') -113px -95px;}
+
+#spr_irobot{left:226px;width:112px;}
+#spr_irobot{background:url('../pics/sprite.png') -224px 0;}
+#spr_irobot a:hover{background: url('../pics/sprite.png') -224px -95px;}
+
+#spr_dnt{left:339px;width:112px;}
+#spr_dnt{background:url('../pics/sprite.png') -337px 0;}
+#spr_dnt a:hover{background: url('../pics/sprite.png') -336px -95px;}

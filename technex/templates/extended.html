@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+{% block externals %}
+
+
+	<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/ui-darkness/jquery-ui-1.8.14.custom.css" />
+	<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/sprite.css" />
+	<link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}css/iphone.css" />
+	
+	<script src="{{ STATIC_URL }}js/jquery.js" type="text/javascript"></script>
+    	<script src="{{ STATIC_URL }}js/jquery-ui-1.8.14.custom.min.js" type="text/javascript"></script>
+	<script src="{{ STATIC_URL }}js/timer.js" type="text/javascript"></script>
+
+	<!--link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}technex.css" /-->
+	
+	
+	<!--
+	<link rel="shortcut ico" href="{{ STATIC_URL }}favicon.ico" />
+	<link rel="stylesheet" href="css/sprite.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/iphone.css" type="text/css" media="screen">
+	<link type="text/css" rel="stylesheet" href="css/ui-darkness/jquery-ui-1.8.14.custom.css">
+	-->
+
+	<script type="text/javascript">
+       $(document).ready(function(){
+            $("#in").delay(1000).animate({marginTop:"105px"},"slow");
+            $("#out").mouseenter(function(){
+            $("#in").animate({marginTop:"0px"});
+            });
+            $("#out").mouseleave(function(){
+            $("#in").delay(1000).animate({marginTop:"105px"});
+            });  
+            $(function() {
+            $( "div#tabs" ).tabs();
+            });
+           });     
+	</script>
+
+	<style type="text/css">
+		.nomarg img
+		{
+		margin:0px;
+		padding:0px;
+		}
+        #tabs
+        {position:relative;
+        min-height:515px;
+        }
+		.intabs
+        {position:relative;
+        min-height:115px;
+        }
+        #child_con
+        {position:relative;
+        width:100%;
+        top:80px;
+        }
+	</style>
+
+{% endblock %}
+
+{% block content %}
+
+<img src="{{ STATIC_URL }}pics/sponsors/a.png" style="height:65px;" />
+
+    {% block subcontent1 %}
+	{% endblock %}
+
+	<!--script src="http://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">google.load("jquery", "1.4.2");</script-->
+     <!--script src="js/easing.js" type="text/javascript"></script>-->
+     <script type="text/javascript" src="{{ STATIC_URL }}js/easing.js"></script>
+     <script type="text/javascript" src="{{ STATIC_URL }}js/iphone.js"></script>
+    <!--script src="js/iphone.js" type="text/javascript"></script-->
+
+	{% block subcontent2 %}
+	<div id="out">
+<div style="float:left;margin-top:55px">
+<a href="javascript:history.go(-1)""><img src="{{ STATIC_URL }}pics/but1.png" style="height:45px;width:65px;" title="Back"/></a>&nbsp;
+<img src="{{ STATIC_URL }}pics/but2.png" style="height:45px;width:65px;" onClick="panelswitch(0,1)"title="Home"/>
+</div>
+<!--TIMER-->
+<div id="timer" style="font:14pt Arial;color:#63718c;position:absolute;margin-top:55px;margin-left:95%;height:55px;width:150px;">
+</div>
+
+<div id="in">
+<ul id="navlist">
+    <a href="home"><li title="SPONSORS" id="spon" onClick="panelswitch(1,50)"></li> </a>
+    <li title="REGISTER ME @ TECHNEX 2012" id="reg" onClick="panelswitch(2,50)"></li>
+    <li title="MYPAGE" id="mypage" onClick="panelswitch(3,50)"></li>
+    <li title="EXPERIENCE THE HEAT OF THE HOT EVENTS" id="event" onClick="panelswitch(4,50)"></li>
+    <li title="LECTURE SERIES:GET READY TO BE ENLIGHTENED" id="guest" onClick="panelswitch(5,50)"></li>
+    <li title="CONTACT US" id="con" onclick="panelswitch(6,50)"></li>
+</ul>
+</div>
+</div>
+	{% endblock %}
+
+{% endblock %}
