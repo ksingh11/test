@@ -39,8 +39,10 @@ class Team(models.Model):
 class Event(models.Model):
     name = models.CharField(max_length=20)
     parent_event = models.ForeignKey('self', null=True, blank=True)
-    short_description = models.CharField(max_length=100, null=True, blank=True)
-    full_description = models.TextField()
+    introduction = models.TextField(null=True, blank=True)
+    problem_statement = models.TextField(null=True, blank=True)
+    rules_and_regulations = models.TextField(null=True, blank=True)
+    contacts = models.TextField(null=True, blank=True)
     participant_teams = models.ManyToManyField(Team, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)

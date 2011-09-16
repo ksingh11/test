@@ -1,10 +1,20 @@
 from django.conf.urls.defaults import *
 from technex.app import views
 from django.views.generic.simple import direct_to_template
+from django.views.generic import list_detail
+from technex.app.models import College
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+college_name = College.objects.all()
+
+college_info = {
+    'queryset': college_name,
+    'template_name': 'index.html',
+}
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,8 +29,8 @@ urlpatterns = patterns('',
     url(r'^register/$', views.register),
 	url(r'^home$', views.home),
 	url(r'^$', direct_to_template, {'template': 'index.html'}),
-	url(r'^robotics$', direct_to_template, {'template': 'robotics.html'}),
-	url(r'^workshops$', direct_to_template, {'template': 'workshops.html'}),
-	url(r'^extreme_engg$', direct_to_template, {'template': 'extreme_engg.html'}),
-	url(r'^modex"$', direct_to_template, {'template': 'modex.html'}),
+    url(r'^home/$', list_detail.object_list, college_info),
+	url(r'^events/$' , views.serialize_to_json),
+    url(r'^eventinfo/$' , direct_to_template, {'template': 'eventinfo.html'}),
+    url(r'^eventspanel/$' , direct_to_template, {'template': 'eventspanel.html'}),
 )

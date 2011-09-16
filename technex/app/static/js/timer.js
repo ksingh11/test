@@ -1,4 +1,4 @@
-dateFuture1 = new Date(2011,8,15,23,59,59); 
+dateFuture1 = new Date(2012,2,16,23,59,59); 
 function GetCount(ddate,iid){ 
  
  dateNow = new Date();
@@ -26,7 +26,7 @@ function GetCount(ddate,iid){
   if(days != 0){out += days +" "+((days==1)?"D":"D")+", ";} 
   out += (hours<=9?'0':'')+hours +" "+((hours==1)?"":"")+": "; 
   out += (mins<=9?'0':'')+mins +" "+((mins==1)?"":"")+": "; 
-  out += (secs<=9?'0':'')+secs +" "+((secs==1)?"":"")+"DeadLine"; 
+  out += (secs<=9?'0':'')+secs +" "+((secs==1)?"":"")+"TECHNEX 2012 COUNTDOWN"; 
   out = out.substr(0,out.length-0); 
   document.getElementById(iid).innerHTML=out; 
  

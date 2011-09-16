@@ -1,0 +1,43 @@
+<div class="inner">	
+    <div class="demo">
+        <div id="tabs">                                
+            <ul>
+                <li><a href="#tabs-1">INTRODUCTION</a></li>
+                <li><a href="#tabs-2">PROBLEM STATEMENT</a></li>
+                <li><a href="#tabs-3">RULES</a></li>
+                <li><a href="#tabs-4">CONTATCS</a></li>
+            </ul>
+        
+            <div id="tabs-1">
+            INTRODUCTION  
+            </div>
+
+            <div id="tabs-2">
+            PROBLEM STATEMENT
+            </div>
+
+            <div id="tabs-3">
+            RULES
+           </div>
+
+            <div id="tabs-4">
+            CONTACTS
+            </div>
+                                
+    </div>
+
+    </div><!-- End of div.demo -->
+						
+</div>
+
+<script type="text/javascript">
+
+    $(function() {
+        $( "div#tabs" ).tabs();
+    });
+
+    $("div#c5 div#tabs-1").html(event_obj.intro);
+    $("div#c5 div#tabs-2").html(event_obj.probstat);
+    $("div#c5 div#tabs-3").html(event_obj.rules);
+    $("div#c5 div#tabs-4").html(event_obj.contacts);
+</script>
