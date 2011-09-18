@@ -33,40 +33,41 @@
             });    
 		
 	    function geteventinfo(){
-	        var response = $.ajax({
-            url: "eventspanel",
+	        $.ajax({
+            url: "eventspanel/",
             dataType: "html",   
-            async: false,
-            //success: function(){
-            //$("div#c5").html(response.responseText);
-            //}
+            async: true,
+            success: function(response){
+                $("div#c5").html(response);
+	            panelswitch(4,50);
+            }
             });
-	
-            $("div#c5'").html(response.responseText);
-	        panelswitch(4,50);
 	    };
     </script>
 
     <script type="text/javascript">
 
         function ajaxrequest_event(eventname){
-            var json_string = $.ajax({
-            url: "events/",
-            global: false,
-            type: "POST",
-            data: {event_name : eventname},
-            dataType: "html",
-            async:false,
-            }).responseText;
-
-            global: event_obj = $.parseJSON(json_string);
-
-	        var event_info_page = $.ajax({
-            url: "eventinfo",
-            dataType: "html",   
-            async: false,
+            $.ajax({
+                url: "events/",
+                global: false,
+                type: "POST",
+                data: {event_name : eventname},
+                dataType: "html",
+                async: true,
+                success: function(response2){
+                    global: event_obj = $.parseJSON(response2);
+	                $.ajax({
+                        url: "eventinfo",
+                        dataType: "html",   
+                        async: true,
+                        success: function(response3){
+                            $("div#c5").html(response3);
+                        }
+                    });
+                }
             });
-        $("div#c5'").html(event_info_page.responseText);
+
 	    };
 
     </script>
