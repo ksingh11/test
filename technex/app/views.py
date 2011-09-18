@@ -13,31 +13,22 @@ class RegistrationForm(UserCreationForm):
         fields = ('name', 'username', 'password1', 'password2', 'email', 'contact', 'gender', 'college',)
 
 def index(request):
+    error = False
     if request.method == "POST":
         form = RegistrationForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():         
             form.save()
             return HttpResponseRedirect('/')
+        else:
+            error = True
     else:
         form = RegistrationForm()
-    
     template_data = {
-        'title': 'TECHNEX- 2012,
+        'title': 'TECHNEX- 2012',
         'form': form,
+        'error': error
     }
     return render_to_response('index.html', template_data, context_instance=RequestContext(request))
-
-"""def register2(request):
-    if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponse('Ho Gaya')
-    else:
-        form = UserProfile()
-    return HttpResponse("<HTML> <BODY> Nahin Hua </BODY> </HTML>")
-    #return render_to_response('index.html',{'form': form})
-"""
 
 def serialize_to_json(request):
     try:
