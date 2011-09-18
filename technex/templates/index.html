@@ -59,25 +59,17 @@
                                 <li><a href="#tabs-1">REGISTRATION...</a></li>
                             </ul>
                             <div id="tabs-1">
-                                
-                                <form method="POST" action="action.py" autocomplete = "off" name="login"style="line-height:15px;cursor:default">
-                                    <input type="text" name="name" size=100 placeholder="Full Name"><br/><br/>
-                                    <input type="text" name="usr" size=100 placeholder="User Name"><br/><br/>
-                                    <select name="gender">
-                                    <option value="">Gender</option>
-                                    <option name="male">MALE</option>
-                                    <option name="female">FEMALE</option>
-                                    </select><br/><br/>
-                                    <input type="text" name="mail" placeholder="Email Address" size=100 ><br/><br/>
-                                    <input type="password" name="pass" placeholder="Password" size=100><br/><br/>
-                                    <select name="clg">
-				    		            <option value="">College/School</option>
-                                            {% for college in object_list %}                                 
-				    			            <option name={{ college.name }}>{{ college.name }}</option>
-				    			            {% endfor %}
-                                    </select><br><br/>
-                                    <input type="text" name="contact" size=100 placeholder="Contact Number"><br/><br/>
-                                    <input type="submit" value="Submit" name="submit" style="padding:10px 100px"><br/><br/>
+
+                                {% block formcontent %}
+                                <form action="." method="POST"  autocomplete = "off" name="login"style="line-height:15px;cursor:default">
+                                {% csrf_token %}
+                                <ul>
+                                    {{ form.as_table }}
+                                </ul>
+                                 <input type="submit" value="Submit" />
+                                </form>
+                                {% endblock %}
+
                                 </form>
                                                     
                             </div>
@@ -139,10 +131,10 @@
                                 <li><a href="#tabs-2">CONTACTS...</a></li>
                             </ul>
                             <div id="tabs-1">
-                                <p>WE CAN PROMISE FOR EXCELLENT FOODING BUT CANT SAY ABOOUT LOGGING</p>
+                                <p>IT-BHU PROVIDES BOARDING & LODGING FACILITIES TO ALL PARTICIPANTS</p>
                             </div>
                             <div id="tabs-2">
-                                <p>FEEL FREE TO CONTACT US ON ANY OF NON WORKING NUMBERS.....</p>
+                                <p>FEEL FREE TO CONTACT US ON ANY OF OUR NUMBERS.....</p>
                             </div>
                         </div>
                     </div><!-- End demo -->
