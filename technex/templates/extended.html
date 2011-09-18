@@ -115,8 +115,8 @@
     {% block subcontent2 %}
 	    <div id="out">
             <div style="float:left;margin-top:55px">
-            <a href="javascript:history.go(-1)""><img src="{{ STATIC_URL }}pics/but1.png" style="height:45px;width:65px;" title="Back"/></a>&nbsp;
-            <img src="{{ STATIC_URL }}pics/but2.png" style="height:45px;width:65px;" onClick="panelswitch(0,1)"title="Home"/>
+            <img src="{{ STATIC_URL }}pics/but1.png" style="height:45px;width:65px;" title="Back" onClick="panelswitch(currpanelind() - 1 , 1);"/>&nbsp;
+            <img src="{{ STATIC_URL }}pics/but2.png" style="height:45px;width:65px;" onClick="panelswitch(0,1);"title="Home"/>
             </div>
             <!--TIMER-->
             <div id="timer" style="font:14pt Arial;color:#63718c;position:absolute;margin-top:55px;margin-left:95%;height:55px;width:150px;">
