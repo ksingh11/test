@@ -61,13 +61,17 @@
                             <div id="tabs-1">
 
                                 {% block formcontent %}
-                                <form action="." method="POST"  autocomplete = "off" name="login"style="line-height:15px;cursor:default">
-                                {% csrf_token %}
-                                <ul>
-                                    {{ form.as_table }}
-                                </ul>
-                                 <input type="submit" value="Submit" />
-                                </form>
+                                    {% if not registration_successful %}
+                                        <form action="." method="POST" name="login"> <!-- autocomplete = "off"  style="line-height:15px;cursor:default" -->
+                                        {% csrf_token %}
+                                        <ul>
+                                        {{ form.as_table }}
+                                        </ul>
+                                        <input type="submit" value="Submit" />
+                                        </form>
+                                    {% else %}
+                                        CONGRATULATIONS! YOU HAVE BEEN REGISTERED FOR TECHNEX 2012
+                                    {% endif %}
                                 {% endblock %}
 
                                 </form>
@@ -100,7 +104,48 @@
                 </div>
                 
             <div id="c5" class="content-box">
-					<!-- EVENT PANEL CONTENT HERE IS BEING LOADED THROUGH AJAX-->
+                <!-- div#c5 Content Loaded through AJAX everytime on click on Events Icon -->
+				<div class="inner">	
+                    <div class="demo">
+                        <div id="tabs">                                
+                            <ul>
+                                <li><a href="#tabs-1">------EVENTS-------</a></li>
+                                <li><a href="#tabs-2">TECHNICAL EVENTS</a></li>
+                                <li><a href="#tabs-3">MANAGEMENT EVENTS</a></li>
+                            </ul>
+                            <div id="tabs-1">
+                                <p>WE HAVE BASICALLY TWO CATEGORIES OF EVENTS</p>
+                                <p>1.TECHNICAL</p>
+                                <p>2. MANAGEMENT</p>
+                                <p>   EXPERIENCE THE HEAT OF THE HOT EVENTS AT TECHNEX 2012</p>
+                            </div>
+                            <div id="tabs-2">
+                                <ul id="tech_event" style="position:relative;left:20%;top:-20px">
+                                    <li title="ROBOTRIX" id="spr_rotrix" onClick="ajaxrequest_event('robotics');"><</li>
+                                    <li title="MODEX" id="spr_modex" onClick="ajaxrequest_event('modex');"></li>
+                                    <li title="CODEFEST" id="spr_codefest" onClick="ajaxrequest_event('codefest');"></li>
+                                    <li title="EXTREME ENGINEERING" id="spr_extreme" onClick="ajaxrequest_event('extreme_engg');"></li>
+                                </ul>
+                                <div id="child_con">
+                                TECHNICAL EVENTS ARE VERY NICE
+                                </div>
+                            </div>
+                            <div id="tabs-3">
+                                <ul id="mang_event"style="position:relative;left:20%;top:-20px">
+                                    <li title="INNOVENTURE" id="spr_innoventure" onClick="ajaxrequest_event('innoventure');"></li>
+                                    <li title="KRACKAT" id="spr_krackat" onClick="ajaxrequest_event('krackat');"></li>
+                                    <li title="VENTURA" id="spr_venture" onClick="ajaxrequest_event('ventura');"></li>
+                                    <li title="MANTHAN" id="spr_manthan" onClick="ajaxrequest_event('manthan');"></li>
+                                    <li title="THOUGHTZ"id="spr_thoughtz" onClick="ajaxrequest_event('thoughtz');"></li>
+                                </ul>
+                                <div id="child_con">
+				                MANAGEMENT EVENTS ARE ALSO VERY NICE
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End demo -->
+						
+                </div>
 			</div>
                 
             <div id="c6" class="content-box">

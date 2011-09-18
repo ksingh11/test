@@ -10,6 +10,25 @@
         <meta name="viewport" content="width=device-width; initial-scale=1.0" />
         <link rel="shortcut icon" href="/favicon.ico" />
         {% block externals %}{% endblock %}
+
+        <style type="text/css">
+            .errorlist, .error {
+                color : red;
+                }
+            input {
+                display: block;
+                margin-top: 0.1em;
+                margin-bottom: 0.1em;
+            }
+            form>ul>li {
+                margin-top: 0.1em;
+                padding-bottom: 0.1em;
+                margin-bottom: 0.1em;
+                border-bottom: 0px dotted black
+            }
+
+        </style>
+
     </head>
     <body style="background-color:#000;">
         {% block content %}

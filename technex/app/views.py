@@ -14,19 +14,20 @@ class RegistrationForm(UserCreationForm):
 
 def index(request):
     error = False
+    reg_success = False
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         if form.is_valid():         
             form.save()
-            return HttpResponseRedirect('/')
+            reg_success = True
         else:
             error = True
     else:
         form = RegistrationForm()
     template_data = {
-        'title': 'TECHNEX- 2012',
         'form': form,
-        'error': error
+        'error': error,
+        'registration_successful': reg_success
     }
     return render_to_response('index.html', template_data, context_instance=RequestContext(request))
 
