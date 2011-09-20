@@ -9,10 +9,10 @@
 {% endblock %}
 
 {% block content %}
-    <form action="." method="post">
+       <form action="register2" method="post">
         {% csrf_token %}
         <ul>
-            {{ form.as_table }}
+            {{ form.as_ul }}
         </ul>
         <input type="submit" value="Submit" />
     </form>

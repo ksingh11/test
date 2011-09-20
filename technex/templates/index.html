@@ -1,6 +1,6 @@
 {% extends "extended.html" %} 
 
-{% block subcontent1 %}   
+{% block subcontent_panels %}   
 	
     <div id="wrapper" style="margin:0px;">
         <div id="fake">
@@ -59,23 +59,25 @@
                                 <li><a href="#tabs-1">REGISTRATION...</a></li>
                             </ul>
                             <div id="tabs-1">
-
                                 {% block formcontent %}
                                     {% if not registration_successful %}
                                         <form action="." method="POST" name="login"> <!-- autocomplete = "off"  style="line-height:15px;cursor:default" -->
                                         {% csrf_token %}
-                                        <ul>
-                                        {{ form.as_table }}
-                                        </ul>
-                                        <input type="submit" value="Submit" />
+                                        <!--ul-->
+                                      <form action="." method="post">
+                                        {% for field in form %}
+                                            <div class="fieldWrapper">
+                                            {{ field.label_tag }}: {{ field }} {{ field.errors }}
+                                            </div>
+                                        {% endfor %}
+                                        <input type="submit" value="Submit" />                                       
                                         </form>
                                     {% else %}
                                         CONGRATULATIONS! YOU HAVE BEEN REGISTERED FOR TECHNEX 2012
                                     {% endif %}
                                 {% endblock %}
 
-                                </form>
-                                                    
+                                </form>                       
                             </div>
                         </div>
                     </div><!-- End demo -->
@@ -91,12 +93,35 @@
                                 <li><a href="#tabs-2">NOTIFICATIONS</a></li>
                             </ul>
                             <div id="tabs-1">
-                                <p>EVENT REGISTERED = 0</p>
-                                <p>RESISTARTION STATUS </p>
+                                 {% if user.is_authenticated %}
+                                    <p>Welcome, {{ user.username }}. </p>
+                                    {% else %}
+                                    <p>Welcome GUEST!, You must be logged in to view this page. </p>
+                                {% endif %}
+
                             </div>
                             <div id="tabs-2">
-                            <p>No New Notifications</p>
-                            </div>                        
+                                {% block notificationcontent %}
+                                    {% if user.is_authenticated %}
+                                        <h3> EVENT NOTIFICATIONS </h3>
+                                        <BR></BR>
+                                        {% if user_event_notifications %}
+                                           <ol>
+                                                {% for notifs in user_event_notifications %}
+                                                    <li> {{ notifs.title }} : {{ notifs.body }} </li>
+                                                {% endfor %}
+                                           </ol>
+                                        {% else %}
+                                            THERE ARE NO NEW EVENT NOTIFICATIONS!
+                                        {% endif %}
+                                    {% else %}
+                                        PLEASE LOGIN TO VIEW GENERAL NOTIFICATIONS
+                                    {% endif %}
+                                {% endblock %}
+
+                                </form>
+                                                    
+                            </div>                      
                             </div>
                         </div><!-- End demo -->
                        

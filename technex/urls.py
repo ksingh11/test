@@ -1,6 +1,8 @@
 from django.conf.urls.defaults import *
 from technex.app import views
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import redirect_to, direct_to_template
+from django.contrib.auth.views import login, logout, password_reset, password_reset_confirm,\
+    password_reset_done, password_change, password_change_done, password_reset_complete
 from technex.app.models import College
 
 # Uncomment the next two lines to enable the admin:
@@ -21,4 +23,14 @@ urlpatterns = patterns('',
 	url(r'^events/$' , views.serialize_to_json),
     url(r'^eventinfo/$' , direct_to_template, {'template': 'eventinfo.html'}),
     url(r'^eventspanel/$' , direct_to_template, {'template': 'eventspanel.html'}),
+    url(r'^accounts/login/$', login),
+    url(r'^accounts/logout/$', logout),
+    url(r'^accounts/profile/$', redirect_to, {'url': '/'}),
+    url(r'^accounts/password/$', redirect_to, {'url': '/'}),
+    url(r'^accounts/password/reset/confirm/(?P<uidb36>[0-9A-Za-z]+)-(?P<token>.+)/$', password_reset_confirm),
+    url(r'^accounts/password/reset/complete/$', password_reset_complete),
+    url(r'^accounts/password/reset/$', password_reset),
+    url(r'^accounts/password/reset/done/$', password_reset_done),
+    url(r'^accounts/password/change/$', password_change),
+    url(r'^accounts/password/change/done/$', password_change_done),
 )

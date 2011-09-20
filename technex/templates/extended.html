@@ -34,7 +34,7 @@
 		
 	    function geteventinfo(){
 	        $.ajax({
-            url: "eventspanel/",
+            url: "/eventspanel/",
             dataType: "html",   
             async: true,
             success: function(response){
@@ -58,7 +58,7 @@
                 success: function(response2){
                     global: event_obj = $.parseJSON(response2);
 	                $.ajax({
-                        url: "eventinfo",
+                        url: "/eventinfo/",
                         dataType: "html",   
                         async: true,
                         success: function(response3){
@@ -98,8 +98,11 @@
 {% block content %}
 
     <img src="{{ STATIC_URL }}pics/sponsors/a.png" style="height:65px;" />
+    
+    {% block subcontent_login %} 
+    {% endblock %}
 
-    {% block subcontent1 %}
+    {% block subcontent_panels %}
     {% endblock %}
 
 	    <!--script src="http://www.google.com/jsapi" type="text/javascript"></script>
@@ -113,7 +116,7 @@
                 {% endif %}
             </script>
 
-    {% block subcontent2 %}
+    {% block subcontent_dock %}
 	    <div id="out">
             <div style="float:left;margin-top:55px">
             <img src="{{ STATIC_URL }}pics/but1.png" style="height:45px;width:65px;" title="Back" onClick="panelswitch(currpanelind() - 1 , 1);"/>&nbsp;
