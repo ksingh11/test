@@ -80,19 +80,26 @@
         function ajaxrequest_mypage(){
             $.ajax({
                 url: "/mypage/",
+                type: "POST",
+                data: {csrfmiddlewaretoken : getCookie('csrftoken')},
                 dataType: "html",
                 async: true,
                 success: function(response4){
-                    console.log = response4;
-                   /* global: mypage_obj = $.parseJSON(response4.responsetext);
-	                $.ajax({
-                        url: "/mypage/",
-                        dataType: "html",   
-                        async: true,
-                        success: function(response4){
-                            $("div#c4 #tabs-2").html(response4);
-                        }
-                    }); */
+                            global: mypage_obj = $.parseJSON(response4);
+                            event_notif_objects = mypage_obj.event_notifications;
+                            for (i=0 ; event_notif_objects[i] != undefined ; i++) {
+                                $("div#c4 div#tabs-2").append(event_notif_objects[0].title + " : ");                    
+                                $("div#c4 div#tabs-2").append(event_notif_objects[0].body);
+                            }
+                            panelswitch(3,50);                               
+                        /* $.ajax({
+                            url: "/mypagehtml/",
+                            dataType: "html",   
+                            async: true,
+                            success: function(response4){
+                            $("div#c4").html(response4);
+                            }
+                            }); */
                 }
             });
 

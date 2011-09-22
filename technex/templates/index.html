@@ -94,30 +94,25 @@
                                 <li><a href="#tabs-2">MY PAGE</a></li>
                             </ul>
                             <div id="tabs-1">
+                                {% block notificationcontent %}
+                                        <BR></BR>
+                                        {% if general_notifs %}
+                                            <ol>
+                                                {% for g_notif in general_notifs %}
+                                                    <li>  {{ g_notif.title }} : {{ g_notif.body }} </li>
+                                                {% endfor %}
+                                            </ol>
+                                        {% else %}
+                                            THERE ARE NO NEW NOTIFICATIONS!
+                                        {% endif %}
+                                {% endblock %} 
+                            </div>
+                            <div id="tabs-2">  
                                  {% if user.is_authenticated %}
                                     <p>Welcome, {{ user.username }}. </p>
                                     {% else %}
                                     <p>Welcome GUEST!, You must be logged in to view this page. </p>
-                                {% endif %}
-                            </div>
-                            <div id="tabs-2">
-                                {% block notificationcontent %}
-                                    {% if user.is_authenticated %}
-                                        <h3> EVENT NOTIFICATIONS </h3>
-                                        <BR></BR>
-                                        {% if user_event_notifications %}
-                                           <ol>
-                                                {% for notifs in user_event_notifications %}
-                                                    <li> {{ notifs.title }} : {{ notifs.body }} </li>
-                                                {% endfor %}
-                                           </ol>
-                                        {% else %}
-                                            THERE ARE NO NEW EVENT NOTIFICATIONS!
-                                        {% endif %}
-                                    {% else %}
-                                        PLEASE LOGIN TO VIEW GENERAL NOTIFICATIONS
-                                    {% endif %}
-                                {% endblock %}                       
+                                {% endif %}                    
                             </div>                   
                         </div>
                     </div><!-- End demo -->

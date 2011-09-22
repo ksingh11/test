@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
-from technex.app.models import UserProfile, College, Team, Event
+#from technex.app.models import UserProfile, College, Team, Event, EventNotification, GeneralNotification
+from technex.app.models import *
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse, Http404
@@ -30,7 +31,13 @@ def index(request):
         'error': error,
         'registration_successful': reg_success
     }
+    
+    #General Notifications
+    general_notifs = GeneralNotification.objects.all()
+    template_data['general_notifs'] = general_notifs
+    
     return render_to_response('index.html', template_data, context_instance=RequestContext(request))
+
 
 def serialize_to_json(request):
     try:
@@ -44,12 +51,12 @@ def serialize_to_json(request):
                       'contacts': event.contacts
                      }
         data = dumps(event_dict)
-        response = HttpResponse(data, mimetype="application/json")
+        response = HttpResponse(data, content_type="application/json")
     except Event.DoesNotExist:
         raise Http404
     return HttpResponse(response)
     
-@login_required
+#@login_required
 def my_page(request):
     u = UserProfile.objects.get(name = 'kaushal')
     team_set = u.team_set.all()
@@ -72,4 +79,4 @@ def my_page(request):
 
     eventnotif_dict = {'event_notifications' : eventnotif_list }
     data = dumps(eventnotif_dict)
-    return HttpResponse(data, mimetype="application/json")
+    return HttpResponse(data, content_type="application/json")

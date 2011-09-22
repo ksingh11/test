@@ -6,7 +6,10 @@
                                 <li><a href="#tabs-2">EVENT NOTIFICATIONS</a></li>
                             </ul>
                             <div id="tabs-1">
-
+                                {% for g_notif in gen_notifs %}
+                                    {{ g_notif.title }} :
+                                    {{ g_notif.body }} 
+                                {% endfor %}
                             </div>
                             <div id="tabs-2">
                        
@@ -21,7 +24,7 @@
         $( "div#tabs" ).tabs();
     });
 
-    //$("div#c4 div#tabs-2").html(mypage_obj.event_notifications);
-    //$("div#c4 div#tabs-2").html(mypage_obj[0].body);
+    $("div#c4 div#tabs-2").append(mypage_obj.event_notifications[0].title);
+    $("div#c4 div#tabs-2").html(mypage_obj.event_notifications[1].body);
 
 </script>
