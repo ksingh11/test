@@ -16,8 +16,8 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'technex',                      			# Or path to database file if using sqlite3.
-        'USER': 'kushagra',                      				# Not used with sqlite3.
+        'NAME': 'technex1',                      			# Or path to database file if using sqlite3.
+        'USER': 'pranjal',                      				# Not used with sqlite3.
         'PASSWORD': 'abc123',                  					# Not used with sqlite3.
         'HOST': '',                      					# Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      					# Set to empty string for default. Not used with sqlite3.
@@ -101,7 +101,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
 )

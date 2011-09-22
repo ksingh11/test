@@ -61,10 +61,11 @@
                             <div id="tabs-1">
                                 {% block formcontent %}
                                     {% if not registration_successful %}
-                                        <form action="." method="POST" name="login"> <!-- autocomplete = "off"  style="line-height:15px;cursor:default" -->
-                                        {% csrf_token %}
+                                        <!--form action="." method="POST" name="login"> <!-- autocomplete = "off"  style="line-height:15px;cursor:default" -->
+                                        {#% csrf_token %#} 
                                         <!--ul-->
                                       <form action="." method="post">
+                                        {% csrf_token %}
                                         {% for field in form %}
                                             <div class="fieldWrapper">
                                             {{ field.label_tag }}: {{ field }} {{ field.errors }}
@@ -77,7 +78,7 @@
                                     {% endif %}
                                 {% endblock %}
 
-                                </form>                       
+                                <!--/form-->                       
                             </div>
                         </div>
                     </div><!-- End demo -->
@@ -89,8 +90,8 @@
                     <div class="demo">
                         <div id="tabs"> 
                             <ul>
-                                <li><a href="#tabs-1">MY PAGE</a></li>
-                                <li><a href="#tabs-2">NOTIFICATIONS</a></li>
+                                <li><a href="#tabs-1">GENERAL NOTIFICATIONS</a></li>
+                                <li><a href="#tabs-2">MY PAGE</a></li>
                             </ul>
                             <div id="tabs-1">
                                  {% if user.is_authenticated %}
@@ -98,7 +99,6 @@
                                     {% else %}
                                     <p>Welcome GUEST!, You must be logged in to view this page. </p>
                                 {% endif %}
-
                             </div>
                             <div id="tabs-2">
                                 {% block notificationcontent %}
@@ -117,16 +117,12 @@
                                     {% else %}
                                         PLEASE LOGIN TO VIEW GENERAL NOTIFICATIONS
                                     {% endif %}
-                                {% endblock %}
-
-                                </form>
-                                                    
-                            </div>                      
-                            </div>
-                        </div><!-- End demo -->
-                       
-                    </div>
-                </div>
+                                {% endblock %}                       
+                            </div>                   
+                        </div>
+                    </div><!-- End demo -->
+                </div> <!--End inner -->
+            </div>
                 
             <div id="c5" class="content-box">
                 <!-- div#c5 Content Loaded through AJAX everytime on click on Events Icon -->

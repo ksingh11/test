@@ -13,7 +13,7 @@ class RegistrationForm(UserCreationForm):
         fields = ('name', 'username', 'password1', 'password2', 'email', 'contact', 'gender', 'college',)
 
 def index(request):
-    #1 Registration Form.
+    #Registration Check
     error = False
     reg_success = False
     if request.method == "POST":
@@ -30,23 +30,7 @@ def index(request):
         'error': error,
         'registration_successful': reg_success
     }
-
-    #2 User Event Notifications
-    #if type(request.user) == AnonumousUser
-    u = UserProfile.objects.get(name = request.user)
-    t_set = u.team_set.all()
-    for i in range(0,len(t_set),1):
-        e_set = (t_set[i].event_set.all())
-        for j in range(0, len(e_set),1):
-            if j==0:
-                eventnotif_set = e_set[0].eventnotification_set.all()
-            else:
-                eventnotif_set +=  e_set[j].eventnotification_set.all()
-    eventnotif_set = set(eventnotif_set)    
-    template_data.update({'user_event_notifications' : eventnotif_set})
-
     return render_to_response('index.html', template_data, context_instance=RequestContext(request))
-
 
 def serialize_to_json(request):
     try:
@@ -65,3 +49,27 @@ def serialize_to_json(request):
         raise Http404
     return HttpResponse(response)
     
+@login_required
+def my_page(request):
+    u = UserProfile.objects.get(name = 'kaushal')
+    team_set = u.team_set.all()
+    for i in range(0,len(team_set)):
+        event_set = team_set[i].event_set.all()
+        for j in range(0, len(event_set)):
+            if j==0:
+                eventnotif_set = event_set[0].eventnotification_set.all()
+            else:
+                eventnotif_set +=  event_set[j].eventnotification_set.all()
+    eventnotif_set = eventnotif_set.distinct()
+
+    #Converting  the eventnotif_set queryset object to a JSON response
+    eventnotif_list = []
+    for i in range(0,len(eventnotif_set)):
+        eventnotif_list +=[{ 
+                                'title' : eventnotif_set[i].title,
+                                'body': eventnotif_set[i].body
+                               }]
+
+    eventnotif_dict = {'event_notifications' : eventnotif_list }
+    data = dumps(eventnotif_dict)
+    return HttpResponse(data, mimetype="application/json")
