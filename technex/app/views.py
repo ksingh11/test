@@ -56,9 +56,9 @@ def serialize_to_json(request):
         raise Http404
     return HttpResponse(response)
     
-#@login_required
+@login_required
 def my_page(request):
-    u = UserProfile.objects.get(name = 'kaushal')
+    u = UserProfile.objects.get(request.user)
     team_set = u.team_set.all()
     for i in range(0,len(team_set)):
         event_set = team_set[i].event_set.all()
